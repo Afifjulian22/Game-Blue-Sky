@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0kqu68dl6m6h"
+path="res://.godot/imported/The Knight Who Chose Peace ️ Relaxing Fantasy Music (1).mp3-180fb42c6481dcd163afc0a01ea03ae9.mp3str"
+
+[deps]
+
+source_file="res://The Knight Who Chose Peace ️ Relaxing Fantasy Music (1).mp3"
+dest_files=["res://.godot/imported/The Knight Who Chose Peace ️ Relaxing Fantasy Music (1).mp3-180fb42c6481dcd163afc0a01ea03ae9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

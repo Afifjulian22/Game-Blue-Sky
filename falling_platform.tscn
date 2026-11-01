@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://Free/Traps/Falling Platforms/On (32x10).png" id="1_on"]
+[ext_resource type="Texture2D" path="res://Free/Traps/Falling Platforms/Off.png" id="2_off"]
+[ext_resource type="Script" path="res://falling_platform.gd" id="3_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trigger"]
+size = Vector2(42, 22)
+
+[node name="FallingPlatform" type="AnimatableBody2D"]
+script = ExtResource("3_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_on")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Trigger" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_trigger")
+
+[connection signal="body_entered" from="Trigger" to=".." method="_on_trigger_body_entered"]

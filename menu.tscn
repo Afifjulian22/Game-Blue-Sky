@@ -1,71 +1,161 @@
-[gd_scene format=3 uid="uid://dd8pwof6tg3q6"]
+[gd_scene load_steps=8 format=3 uid="uid://dd8pwof6tg3q6"]
 
-[ext_resource type="VideoStream" uid="uid://3dgd642a7qjj" path="res://Free/Background/village.ogv" id="1_mae5d"]
-[ext_resource type="Script" uid="uid://b60tlab2j8ogf" path="res://start.gd" id="2_ouk20"]
-[ext_resource type="Script" uid="uid://clkqoygy21ilv" path="res://exit.gd" id="3_mae5d"]
+[ext_resource type="VideoStream" uid="uid://3dgd642a7qjj" path="res://Free/Background/village.ogv" id="1_video"]
+[ext_resource type="Script" uid="uid://b60tlab2j8ogf" path="res://start.gd" id="2_start"]
+[ext_resource type="Script" uid="uid://clkqoygy21ilv" path="res://exit.gd" id="3_exit"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_oifca"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 44.0
+content_margin_top = 34.0
+content_margin_right = 44.0
+content_margin_bottom = 34.0
+bg_color = Color(0.05, 0.055, 0.08, 0.45)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.14)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 18
 
-[node name="Menu" type="Node2D" unique_id=998027922]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 12.0
+bg_color = Color(0.1, 0.11, 0.15, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8, 0.42, 0.5)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=130583292]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 12.0
+bg_color = Color(0.17, 0.18, 0.24, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8, 0.42, 0.95)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 12.0
+bg_color = Color(0.06, 0.07, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8, 0.42, 0.8)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-stretch_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=162913955]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-stream = ExtResource("1_mae5d")
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_video")
 autoplay = true
 expand = true
 
-[node name="START" type="Button" parent="." unique_id=1182595936]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -49.0
-offset_right = 96.0
-offset_bottom = 22.0
-text = "START"
-icon = SubResource("CanvasTexture_oifca")
-script = ExtResource("2_ouk20")
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EXIT" type="Button" parent="." unique_id=732035590]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = 45.0
-offset_right = 96.0
-offset_bottom = 116.0
-text = "EXIT
-"
-icon = SubResource("CanvasTexture_oifca")
-script = ExtResource("3_mae5d")
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="Label" type="Label" parent="." unique_id=567501980]
-modulate = Color(1, 0.4244369, 0.3897843, 1)
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -174.0
-offset_right = 200.0
-offset_bottom = -106.0
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 49
-text = "Adventure Time"
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.03, 0.06, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 54
+text = "ADVENTURE TIME"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[connection signal="pressed" from="START" to="START" method="_on_pressed"]
-[connection signal="pressed" from="EXIT" to="EXIT" method="_on_pressed"]
+[node name="Subtitle" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.85, 0.75)
+theme_override_font_sizes/font_size = 20
+text = "Blue Sky"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="START" type="Button" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "START"
+script = ExtResource("2_start")
+
+[node name="EXIT" type="Button" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "EXIT"
+script = ExtResource("3_exit")
+
+[node name="Hint" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6)
+theme_override_font_sizes/font_size = 15
+text = "A / D atau panah  •  Spasi untuk lompat  •  tombol sentuh di HP"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Center/Panel/VBox/START" to="Center/Panel/VBox/START" method="_on_pressed"]
+[connection signal="pressed" from="Center/Panel/VBox/EXIT" to="Center/Panel/VBox/EXIT" method="_on_pressed"]

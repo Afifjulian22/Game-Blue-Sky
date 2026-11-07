@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crk525uf40ifg"]
 
 [ext_resource type="Texture2D" uid="uid://cvk81fwr07tew" path="res://Free/Traps/Saw/On (38x38).png" id="1_7k104"]
+[ext_resource type="Script" path="res://enemy.gd" id="2_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
 atlas = ExtResource("1_7k104")
@@ -70,6 +71,7 @@ animations = [{
 radius = 15.714285
 
 [node name="Enemy" type="Area2D" unique_id=1674669714]
+script = ExtResource("2_script")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1061597846]
 position = Vector2(-4.7683716e-07, 1)
@@ -82,3 +84,5 @@ frame_progress = 0.56286514
 position = Vector2(0, 0.99999994)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_10xe6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

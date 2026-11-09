@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc4qch5hbyq6k"
-path="res://.godot/imported/falling.jpg-62865dce80120d6ec44bf83524aa56cc.ctex"
+uid="uid://bnpmc0iukwhdx"
+path="res://.godot/imported/afif_row1.png-2026e48d876be8b560521943b4bf5572.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Free/Main Characters/Pink Man/falling.jpg"
-dest_files=["res://.godot/imported/falling.jpg-62865dce80120d6ec44bf83524aa56cc.ctex"]
+source_file="res://Free/Main Characters/Afif/aligned/rows/afif_row1.png"
+dest_files=["res://.godot/imported/afif_row1.png-2026e48d876be8b560521943b4bf5572.ctex"]
 
 [params]
 

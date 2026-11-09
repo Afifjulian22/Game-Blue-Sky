@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk4drayvt41nn"
-path="res://.godot/imported/falling-removebg-preview.png-87f3671f1a30fb3067c34082d7938726.ctex"
+uid="uid://dtaev0mrfsbxn"
+path="res://.godot/imported/hit-removebg-preview.png-da9e7d4dc9700882e113d97f9a2bdbbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Free/Main Characters/Pink Man/falling-removebg-preview.png"
-dest_files=["res://.godot/imported/falling-removebg-preview.png-87f3671f1a30fb3067c34082d7938726.ctex"]
+source_file="res://Free/Main Characters/hit-removebg-preview.png"
+dest_files=["res://.godot/imported/hit-removebg-preview.png-da9e7d4dc9700882e113d97f9a2bdbbc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6o6440uufm5q"
-path="res://.godot/imported/hit.jpg-f5ee534ebd37480fb5f4c5174617a52a.ctex"
+uid="uid://km7tw2wju4ci"
+path="res://.godot/imported/afif-removebg-preview.png-32f12def96171cff15e26c3a1020788e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Free/Main Characters/Pink Man/hit.jpg"
-dest_files=["res://.godot/imported/hit.jpg-f5ee534ebd37480fb5f4c5174617a52a.ctex"]
+source_file="res://Free/Main Characters/Afif/afif-removebg-preview.png"
+dest_files=["res://.godot/imported/afif-removebg-preview.png-32f12def96171cff15e26c3a1020788e.ctex"]
 
 [params]
 

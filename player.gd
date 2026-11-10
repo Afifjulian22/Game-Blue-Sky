@@ -59,8 +59,7 @@ func _layout_touch_buttons() -> void:
 	btn_jump.position = Vector2(vp.x - margin, vp.y - margin)
 
 	var hearts := _hearts()
-	var total := MAX_LIVES * HEART_SIZE + (MAX_LIVES - 1) * HEART_GAP
-	var start_x := vp.x - 24.0 - total
+	var start_x := 24.0
 	for i in hearts.size():
 		hearts[i].size = Vector2(HEART_SIZE, HEART_SIZE)
 		hearts[i].position = Vector2(start_x + i * (HEART_SIZE + HEART_GAP), 20.0)
@@ -106,6 +105,7 @@ func _physics_process(delta: float) -> void:
 		safe_position = global_position
 
 	if global_position.y > fall_limit:
+		play_fall()
 		die()
 		return
 
@@ -122,9 +122,9 @@ func _standing_on_moving_body() -> bool:
 
 func _update_animation(direction: float) -> void:
 	if not is_on_floor():
-		if velocity.y > 30.0:
-			sprite.play("fall")
-		elif jump_count >= max_jumps:
+		# Di udara: selalu animasi lompat, baik saat naik maupun saat
+		# turun. Animasi "fall" TIDAK dipakai di sini -- lihat play_fall().
+		if jump_count >= max_jumps:
 			sprite.play("2jump")
 		else:
 			sprite.play("jump")
@@ -140,7 +140,24 @@ func _update_animation(direction: float) -> void:
 		sprite.flip_h = false
 
 
-# Called by every hazard (spikes, saws, fire, kill zone, pit).
+# Reaksi saat terkena jebakan (duri, api, gergaji).
+# HANYA fungsi ini yang boleh memutar animasi "hit".
+func play_hit() -> void:
+	if is_dead or is_invulnerable:
+		return
+	sprite.play("hit")
+
+
+# Jatuh ke pembatas dunia (jurang / batas bawah map).
+# HANYA fungsi ini yang boleh memutar animasi "fall".
+func play_fall() -> void:
+	if is_dead or is_invulnerable:
+		return
+	sprite.play("fall")
+
+
+# Dipanggil saat jatuh ke jurang / melewati batas bawah map.
+# Tidak mengubah animasi sama sekali.
 func die() -> void:
 	if is_dead or is_invulnerable:
 		return
@@ -149,8 +166,7 @@ func die() -> void:
 	lives -= 1
 	_update_hearts()
 	velocity = Vector2.ZERO
-	sprite.play("hit")
-	await get_tree().create_timer(respawn_delay).timeout
+	await get_tree().create_timer(respawn_delay, false).timeout
 	_respawn()
 
 
@@ -173,7 +189,7 @@ func _respawn() -> void:
 	# Short grace period so the player is not instantly killed again.
 	is_invulnerable = true
 	sprite.modulate.a = 0.5
-	await get_tree().create_timer(invulnerable_time).timeout
+	await get_tree().create_timer(invulnerable_time, false).timeout
 	if not is_inside_tree():
 		return
 	sprite.modulate.a = 1.0

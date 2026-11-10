@@ -57,6 +57,28 @@ Opsi B - per baris (paling mudah):
    3. Horizontal = jumlah frame pada baris itu, Vertical = 1.
    4. Atur FPS sesuai selera (contoh 8-12 FPS).
 
+PEMETAAN YANG DIPAKAI DI GAME (player.tscn)
+------------------------------------------
+   idle   -> afif-aligned.png     baris 1, 6 frame,  5 FPS
+   run    -> afif-aligned.png     baris 3, 6 frame,  8 FPS
+   jump   -> falling-aligned.png  baris 1, 6 frame,  8 FPS
+   fall   -> falling-aligned.png  baris 2, 5 frame,  8 FPS
+   hit    -> falling-aligned.png  baris 3, 5 frame,  8 FPS
+   2jump  -> afif-aligned.png     baris 5, 7 frame,  8 FPS
+
+   AnimatedSprite2D di player.tscn memakai:
+       scale  = 0.4
+       offset = (0, -46.5)   -> telapak kaki tepat di titik origin (y = 0)
+       (catatan: offset dihitung dalam pixel lokal, jadi ikut dikali
+        scale 0.4. -46.5 * 0.4 = -18.6 px di dunia.)
+
+   CollisionShape2D:
+       CapsuleShape2D radius 9, height 30
+       position (0, -15)     -> bagian bawah hitbox tepat di kaki (y = 0)
+
+   Baris afif 4 (berguling / bola berputar) belum dipakai di game;
+   bisa dipakai nanti untuk animasi roll atau spin.
+
 CATATAN
 -------
 - File sumber tidak ditimpa; semua hasil adalah file baru.

@@ -23,5 +23,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("play_hit"):
+		body.play_hit()
 	if body.has_method("die"):
 		body.die()
